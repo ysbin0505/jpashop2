@@ -24,6 +24,7 @@ public class Order {
   private List<OrderItem> orderitem = new ArrayList<>();
 
   @OneToOne
+  @JoinColumn(name = "delivery_id")
   private Delivery delivery;
 
   //private Date date; 밑에거 쓰면됌
