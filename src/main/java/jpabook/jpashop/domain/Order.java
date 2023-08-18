@@ -23,11 +23,13 @@ public class Order {
   @OneToMany(mappedBy = "order")
   private List<OrderItem> orderitem = new ArrayList<>();
 
+  @OneToOne
   private Delivery delivery;
 
   //private Date date; 밑에거 쓰면됌
-  private LocalDateTime orderDate;
+  private LocalDateTime orderDate;  //주문시간
 
+  @Enumerated(EnumType.STRING)
   private OrderStatus status; //주문상태 [ORDER, CANCEL]
 
 
