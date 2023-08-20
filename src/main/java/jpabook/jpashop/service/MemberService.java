@@ -2,9 +2,7 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +11,7 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true) //기본 read only false로 지정
 //@AllArgsConstructor -> 밑에있는 생성자를 만들어줌
-@RequiredArgsConstructor //-> final이 있는 필드만을 가지고 생성자를 만들어줌(권장)
+@RequiredArgsConstructor //-> final이 있는 필드만을 가지고 생성자를 만들어줌
 public class MemberService {
 
   private final MemberRepository memberRepository;
