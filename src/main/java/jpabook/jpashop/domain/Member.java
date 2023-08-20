@@ -11,11 +11,11 @@ import java.util.List;
 public class Member {
   @Id @GeneratedValue
   @Column(name = "member_id")
-  private Long id;
-  private String name;
+  private Long id;    //id
+  private String name;    //회원명
 
   @Embedded
-  private Address address;
+  private Address address;    //주소
 
   @OneToMany(mappedBy = "member")   //연관관계의 주인이 아니다.
   private List<Order> orders = new ArrayList<>();

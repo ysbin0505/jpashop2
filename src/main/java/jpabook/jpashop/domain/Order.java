@@ -39,14 +39,21 @@ public class Order {
     member.getOrders().add(this);
   }
 
-  public static void main(String[] args){
+  /*public static void main(String[] args){     연관관계 다른 예
     Member member = new Member();
     Order order = new Order();
 
     member.getOrders().add(order);
     order.setMember(member);
+  }*/
 
+  public void addOrderItem(OrderItem orderItem){
+    orderItems.add(orderItem);
+    orderItem.setOrder(this);
   }
 
-
+  public void setDelivery(Delivery delivery){
+    this.delivery = delivery;
+    delivery.setOrder(this);
+  }
 }
