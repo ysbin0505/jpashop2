@@ -7,7 +7,7 @@ import jpabook.jpashop.domain.OrderItem;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
-import jpabook.jpashop.repository.OrderReprository;
+import jpabook.jpashop.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrderService {
-  private final OrderReprository orderReprository;
+  private final OrderRepository orderReprository;
   private final MemberRepository memberRepository;
   private final ItemRepository itemRepository;
 
