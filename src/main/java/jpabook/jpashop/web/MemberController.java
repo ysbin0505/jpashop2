@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 @Controller
 @RequiredArgsConstructor
-public class MemberController {
+public class MemberController {//
   private final MemberService memberService;
 
   @GetMapping(value = "/members/new")
