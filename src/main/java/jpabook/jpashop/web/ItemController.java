@@ -28,14 +28,9 @@ public class ItemController {
 
 
   @PostMapping("/items/new")
-  public String create(BookForm form, AlbumForm albumForm) {
+  public String create(BookForm form/*, AlbumForm albumForm*/) {
 
-    Book book = new Book();
-    book.setName(form.getName());
-    book.setPrice(form.getPrice());
-    book.setStockQuantity(form.getStockQuantity());
-    book.setAuthor(form.getAuthor());
-    book.setIsbn(form.getIsbn());
+    Book book = getBook(form);
 
     itemService.saveItem(book);
     return "redirect:/";
@@ -52,6 +47,16 @@ public class ItemController {
     }
     return "redirect:/";
   }*/
+  }
+
+  private static Book getBook(BookForm form) {
+    Book book = new Book();
+    book.setName(form.getName());
+    book.setPrice(form.getPrice());
+    book.setStockQuantity(form.getStockQuantity());
+    book.setAuthor(form.getAuthor());
+    book.setIsbn(form.getIsbn());
+    return book;
   }
 
   /**
@@ -88,8 +93,8 @@ public class ItemController {
    * 상품 수정
    */
   @PostMapping(value = "/items/{itemId}/edit")
-  public String updateItem(@ModelAttribute("form") BookForm form) { //
-    Book book = new Book();
+  public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) { //
+  /*  Book book = new Book();
     book.setId(form.getId());
     book.setName(form.getName());
     book.setPrice(form.getPrice());
@@ -97,6 +102,11 @@ public class ItemController {
     book.setAuthor(form.getAuthor());
     book.setIsbn(form.getIsbn());
     itemService.saveItem(book);
+    return "redirect:/items"; */
+
+    //어설프게 엔티티를 파라미터로 쓰지않고 필요한 데이터만 받음 -> 유지보수에 용이
+    itemService.updateItem(itemId,form.getName(), form.getPrice(), form.getStockQuantity());
+
     return "redirect:/items";
   }
 }
