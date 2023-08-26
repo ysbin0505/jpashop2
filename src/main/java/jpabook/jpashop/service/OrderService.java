@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrderService {
-  private final OrderRepository orderReprository;
+  private final OrderRepository orderRepository;
   private final MemberRepository memberRepository;
   private final ItemRepository itemRepository;
 
@@ -41,7 +41,7 @@ public class OrderService {
     //new OrderItem();  ->protected로 막아놓음
 
     //주문 저장
-    orderReprository.save(order);
+    orderRepository.save(order);
 
     return order.getId();
 
@@ -52,7 +52,7 @@ public class OrderService {
    */
   public void cancelOrder(Long orderId){
     //주문 엔티티 조회
-    Order order = orderReprository.findOne(orderId);
+    Order order = orderRepository.findOne(orderId);
     //주문 취소
     order.cancel();
   }
@@ -61,7 +61,7 @@ public class OrderService {
    * 주문 검색
    */
   /*public List<Order> findOrders(OrderSearch orderSearch){
-    return orderReprository.findAll(orderSearch);
+    return orderRepository.findAll(orderSearch);
 
   }*/
 }

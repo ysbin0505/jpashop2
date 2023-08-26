@@ -33,8 +33,8 @@ public class OrderController {    //item선택위해 dependency가 많이 필요
 
     return "order/orderForm";
   }
-
-  @PostMapping(value = "/order")
+      //Long memberId 말고 Member member로 받아버리면 영속성이 아님(JPA)가 관리하는게 아니라서 memberId만 받아옴
+  @PostMapping(value = "/order")  //여러개의 상품을 한번에 주문할 수 있게 하려면 이쪽 고치면됌
   public String order(@RequestParam("memberId") Long memberId, @RequestParam("item") Long itemId,
                       @RequestParam("count") int count){
     orderService.order(memberId, itemId, count);
