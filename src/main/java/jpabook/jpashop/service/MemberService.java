@@ -56,9 +56,9 @@ public class MemberService {
   }
 
   @Transactional
-  public void update(Long id, String name) {
+  public void update(Long id, String name, String company) {
     Member member = memberRepository.findOne(id); //레포지토리에서 id를 찾아옴
     member.setName(name); //그 이름을 바꿈(@@@@변경감지@@@@)
-
+    member.setCompany(company);
   }
 }
