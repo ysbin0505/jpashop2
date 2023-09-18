@@ -16,6 +16,8 @@ public class Member {
   @NotEmpty
   private String name;    //회원명
 
+  private String company;
+
   @Embedded
   private Address address;    //주소
 
